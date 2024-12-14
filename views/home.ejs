@@ -6,7 +6,8 @@
     <title><%= restaurant.name %></title>
   </head>
   <body>
-    <h1>Home Page</h1>
+    <%- include('./partials/_navbar') %>
+
     <h2>Welcome to <%= restaurant.name %>!</h2>
     <p>Address: <%= restaurant.address %></p>
     <p>Phone: <%= restaurant.phone %></p>

@@ -58,6 +58,23 @@ app.get('/', (req, res) => {
   res.render('home.ejs', { restaurant: RESTAURANT })
 })
 
+app.get('/menu', (req, res) => {
+  res.render('menu.ejs', { restaurant: RESTAURANT })
+})
+
+app.get('/menu', (req, res) => {
+  res.render('menu', {
+    menu: RESTAURANT.menu,
+    restaurantName: RESTAURANT.name
+  })
+})
+
+app.get('/menu/:category', (req, res) => {
+  const category = req.params.category
+  const menuItems = RESTAURANT.menu.filter((item) => item.category === category)
+  res.render('category.ejs', { category, menuItems: menuItems })
+})
+
 app.get('/', (req, res) => {
   res.send('Hello There!')
 })
